@@ -1,0 +1,28 @@
+<!--
+  Generated template for the DetalleEmpleadoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="haibu">
+    <ion-title>Detalles Empleado</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <img src="assets/imgs/haibu.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ empleado.nombre }} {{ empleado.apellido}}
+        </ion-card-title>
+        <p>Rut: {{empleado.rut | pipesValidaRut}}</p>
+        <p>Fecha De Nacimiento: {{empleado.fechaNacimiento | pipesValidaFecha}}</p>
+        <p>Dirección: {{empleado.direccion | pipesComuna}} {{empleado.direccion.calle}} {{empleado.direccion.numero}}</p> 
+    </ion-card-content>
+  </ion-card>
+</ion-content>

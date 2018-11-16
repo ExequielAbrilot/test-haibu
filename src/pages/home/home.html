@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color = "haibu">
+    <ion-title>
+      Prueba Técnica
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+
+<ion-content padding>
+
+  <ion-refresher (ionRefresh)="recargar($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <h3>Busqueda de empleado</h3>
+  <ion-searchbar #termino (ionInput)="buscarEmpleado($event)"></ion-searchbar>
+
+  <div *ngIf="empleados?.length===0" class="alert alert-primary" role="alert">
+    No se han encontrado resultados con el término: {{termino._value}}
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let cadaEmpleado of empleados" (click)="verDetalles(cadaEmpleado)">
+      <ion-avatar item-start>
+        <img src="assets/imgs/noimage.png">
+      </ion-avatar>
+    
+      <h2>{{cadaEmpleado.nombre}} {{cadaEmpleado.apellido}}</h2>
+      <p>Telefono de contacto: +{{cadaEmpleado.telefono}}</p> 
+
+
+    </ion-item>
+  </ion-list>
+
+  <hr>
+</ion-content>
