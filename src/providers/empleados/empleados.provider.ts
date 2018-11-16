@@ -28,7 +28,8 @@ export class EmpleadosProvider {
 
   buscarEmpleado(terminoBusqueda){
     return this.empleados.filter(cadaEmpleado=>{
-      return cadaEmpleado.nombre.toLowerCase().indexOf(terminoBusqueda)>=0
+      return cadaEmpleado.nombre.toLowerCase().indexOf(terminoBusqueda)>=0 || 
+             cadaEmpleado.apellido.toLowerCase().indexOf(terminoBusqueda)>=0
     });
   }
 
